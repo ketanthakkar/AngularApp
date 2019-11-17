@@ -1,0 +1,13 @@
+<section>
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+      *ngFor="let planet of planets"
+      (click)="getDetail(planet)">
+      {{planet.name}}
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-paginator [length]="totalPlanets"
+              [pageSize]="10"
+              (page)="pageEvent = $event">
+  </mat-paginator>
+</section>
