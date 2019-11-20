@@ -1,6 +1,8 @@
 import { OnInit, Component } from '@angular/core';
-import { PlanetService } from '../planet.service';
-import { Planet } from '../planet';
+import { PlanetService } from '../../services/planet.service';
+import { Planet } from '../../entities/planet';
+import { ActivatedRoute } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
     selector: 'app-planet-detail',
@@ -9,21 +11,24 @@ import { Planet } from '../planet';
 })
 export class PlanetDetailComponent implements OnInit {
     
+    public planet: Planet;
 
     constructor(
-        private planetService: PlanetService
+        private route: ActivatedRoute,
+        private planetService: PlanetService,
+        private sharedService: SharedService,
     ) {}
 
     ngOnInit() {
+        this.sharedService.showBackButton();
+        this.getPlanetDetail();
     }
 
     private getPlanetDetail(): void {
-
-
-        // this.planetService.getPlanetDetail().subscribe(planet => {
-        //     this.planet = planet;
-
-        //     console.log(this.planets);
-        // });
+        console.log(`id ${this.route.snapshot.paramMap.get('id')}`)
+        this.planetService.getPlanetDetail(this.route.snapshot.paramMap.get('id')).subscribe(planet => {
+            this.planet = planet;
+            console.log(this.planet);
+        });
     }
 }

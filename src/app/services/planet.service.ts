@@ -3,8 +3,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Planet } from './planet';
-import { PlanetList } from './planetList';
+import { Planet } from '../entities/planet';
+import { PlanetList } from '../entities/planetList';
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +19,16 @@ export class PlanetService {
 
   constructor(private http: HttpClient) { }
 
-  public getPlanets(): Observable<PlanetList> {
-    return this.http.get<PlanetList>(this.planetsUrl)
+  public getPlanets(url: string): Observable<PlanetList> {
+    return this.http.get<PlanetList>(url)
       .pipe(
         tap(response => this.log(response + '')),
         catchError(this.handleError)
       );
   }
 
-  public getPlanetDetail(url: string): Observable<Planet> {
+  public getPlanetDetail(id: string): Observable<Planet> {
+    const url = `${this.planetsUrl}/${id}/`
     return this.http.get<Planet>(url)
       .pipe(
         tap(response => this.log(response + '')),

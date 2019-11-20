@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatGridListModule, MatPaginatorModule, MatToolbarModule } from '@angular/material';
+import { MatGridListModule, MatPaginatorModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { PlanetListComponent } from './planets/planet-list/planet-list.component';
 import { PlanetDetailComponent } from './planets/planet-detail/planet-detail.component';
 
@@ -24,6 +24,7 @@ import { PlanetDetailComponent } from './planets/planet-detail/planet-detail.com
     MatGridListModule,
     MatPaginatorModule,
     MatToolbarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

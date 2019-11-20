@@ -1,7 +1,7 @@
 const PROXY_CONFIG = [
   {
     context: [
-      "/api/planets"
+      "/api/**",
     ],
     target: "https://swapi.co",
     secure: false,

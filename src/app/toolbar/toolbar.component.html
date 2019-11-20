@@ -1,7 +1,13 @@
 <header>
   <div class="header">
     <nav>
-      <mat-toolbar>Planets</mat-toolbar>
+      <mat-toolbar>
+        <div>
+          <mat-icon *ngIf="showIcon" (click)="moveToBackPage()">arrow_back</mat-icon>
+          <span>Planets</span>
+        </div>
+        <input class="search-text" type="search" placeholder="Search" (search)="search($event.target.value)">
+      </mat-toolbar>
     </nav>
   </div>
 </header>

@@ -1,5 +1,9 @@
 mat-grid-tile {
-    background-color: #F5F2F0;
-    background: #464547;
+    background-color: rgba(11, 11, 11, 0.6);
     cursor: pointer;
+    color: white;
+}
+
+mat-paginator {
+    color: white;
 }
