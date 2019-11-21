@@ -72,14 +72,13 @@ export class PlanetListComponent implements OnInit {
   }
 
   getPlanetData(event?: PageEvent) {
-    const page = event.pageIndex + 1;
-
     if (this.currentPage < event.pageIndex) {
       this.getPlanets(this.requestUrl);
     } else {
-      if (localStorage.getItem(`page${page}`) !== null) {
-        this.setData(JSON.parse(localStorage.getItem(`page${page}`)));
-      } else {
+      if(localStorage.getItem(`page${event.pageIndex+1}`) !== null) {
+        this.setData(JSON.parse(localStorage.getItem(`page${event.pageIndex+1}`)));
+      }
+      else {
         this.getPlanets(this.previousPage);
       }
     }
