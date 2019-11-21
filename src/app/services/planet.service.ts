@@ -28,7 +28,7 @@ export class PlanetService {
   }
 
   public getPlanetDetail(id: string): Observable<Planet> {
-    const url = `${this.planetsUrl}/${id}/`
+    const url = `${this.planetsUrl}/${id}/`;
     return this.http.get<Planet>(url)
       .pipe(
         tap(response => this.log(response + '')),

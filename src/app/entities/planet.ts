@@ -10,7 +10,7 @@ export class Planet {
   surface_water: '';
   population: '';
   url: '';
-  
+
   constructor(properties: any) {
     Object.assign(this, properties);
   }

@@ -3,10 +3,10 @@
     <nav>
       <mat-toolbar>
         <div>
-          <mat-icon *ngIf="showIcon" (click)="moveToBackPage()">arrow_back</mat-icon>
-          <span>Planets</span>
+          <mat-icon *ngIf="showIcon" color="white" (click)="moveToBackPage()">arrow_back</mat-icon>
+          <span class="title">Planets</span>
         </div>
-        <input class="search-text" type="search" placeholder="Search" (search)="search($event.target.value)">
+        <input class="search-text" *ngIf="!showIcon" type="search" placeholder="Search" (search)="search($event.target.value)">
       </mat-toolbar>
     </nav>
   </div>

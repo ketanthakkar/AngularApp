@@ -1,5 +1,5 @@
 mat-toolbar {
-    background: #F9CD04;
+    background: cadetblue;
     font-size: 2rem;
     font-weight: bold;
     color: #976C04;
@@ -12,6 +12,10 @@ mat-icon {
     cursor: pointer;
 }
 
+.title {
+    color: rgb(240,240,240);
+}
+
 .search-text {
     border: none;
     padding: 5px 10px;
@@ -19,4 +23,11 @@ mat-icon {
     background: no-repeat;
     border-bottom: 1px solid;
     outline: none;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+::placeholder { 
+    color: white;
+    opacity: 0.4; 
 }
