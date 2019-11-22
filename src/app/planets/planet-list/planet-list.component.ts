@@ -34,9 +34,6 @@ export class PlanetListComponent implements OnInit {
   ngOnInit() {
     this.requestUrl = `${this.url}?page=1`;
     this.getPlanets(this.requestUrl);
-    this.spinner.show();
-
-    // this.totalPlanets = 60;
 
     this.sharedService.planetName.subscribe(name => {
       if (name.length > 0) {
@@ -51,6 +48,7 @@ export class PlanetListComponent implements OnInit {
   }
 
   private getPlanets(url: string): void {
+    this.spinner.show();
     this.planetService.getPlanets(url).subscribe(planet => {
       this.spinner.hide();
       const pageNumber = url.split('=')[1];
@@ -75,10 +73,9 @@ export class PlanetListComponent implements OnInit {
     if (this.currentPage < event.pageIndex) {
       this.getPlanets(this.requestUrl);
     } else {
-      if(localStorage.getItem(`page${event.pageIndex+1}`) !== null) {
-        this.setData(JSON.parse(localStorage.getItem(`page${event.pageIndex+1}`)));
-      }
-      else {
+      if (localStorage.getItem(`page${event.pageIndex + 1}`) !== null) {
+        this.setData(JSON.parse(localStorage.getItem(`page${event.pageIndex + 1}`)));
+      } else {
         this.getPlanets(this.previousPage);
       }
     }
